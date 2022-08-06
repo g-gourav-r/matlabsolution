@@ -1,0 +1,26 @@
+m=2;
+n=3;
+x1=J(1,:)
+x2=J(2,:)
+y1=J(:,1)
+y2=J(:,2)
+y3=J(:,3)
+f=[sum(x1) sum(x2)]
+g=[sum(y1) sum(y2) sum(y3)]
+S=sum(sum(J))%Sum should be equal to "1"
+E_X=sum(X.*f)
+E_Y=sum(Y.*g)
+E_X2=sum((X.^2).*f)
+E_Y2=sum((Y.^2).*g)
+VarX=E_X2-(E_X)^2
+VarY=E_Y2-(E_Y)^2
+SDX=sqrt(VarX)
+SDY=sqrt(VarY)
+for i=1:2
+ for j=1:3
+ E(i,j)=sum(X(i)*Y(j)*J(i,j)); %You will get a 2*3 matrix of the mentionedform
+ end
+end
+E_XY=sum(sum(E))
+COV_XY= E_XY-(E_X*E_Y)
+COR_XY= (COV_XY)/(SDX*SDY)
