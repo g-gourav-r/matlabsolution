@@ -1,0 +1,8 @@
+syms x y z
+P=[ 0 1 0;0 0 1;1/3 1/3 1/3]
+X=[x y z]
+K=X*P== X
+eq1=K(1)
+eq2=K(2)
+eq3= x+y+z==1 %for 2*2 matrix x+y=1 and for 3*3 matrix x+y+z=1
+sol = solve([eq1, eq2,eq3], [x, y,z])
