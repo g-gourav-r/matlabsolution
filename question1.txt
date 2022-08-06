@@ -1,1 +1,12 @@
-
+syms r t
+u=@(r,t)r*cos(t)
+v=@(r,t)r*sin(t)
+u_r=diff(u,r)
+u_t=diff(u,t)
+v_r=diff(v,r)
+v_t=diff(v,t)
+if u_r==v_t && v_r==-u_t
+   disp("f(z) satisfies CR equation")
+else
+ disp("f(z) doesn't satisfy CR equation and hence not analytic")
+end
