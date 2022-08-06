@@ -1,1 +1,15 @@
+X=[0 2 4 5 7 10]
+y=[100 120 256 390 710 1600]
+n = length(X)
 
+Y=log(y);
+syms a1 b1 
+eq1=n*a1+b1*sum(X)==sum(Y)
+eq2=a1*sum(X)+b1*sum(X.*X)==sum(X.*Y)
+[A,B]= equationsToMatrix([eq1 eq2],[a1,b1])
+X=linsolve(A,B)
+a1=double(X(1))
+b1=double(X(2))
+a=exp(a1)
+b= b1
+fprintf('the curve fitting is given by Y=%f*x^(%f)',a,b)
